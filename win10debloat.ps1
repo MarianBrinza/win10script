@@ -30,11 +30,11 @@ $tweaks = @(
 	"RequireAdmin",
 
 	### External Program Setup
-	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS!
-	"InstallAdobe",
-	"Install7Zip",
-	"InstallNotepadplusplus",
-	"InstallMediaPlayerClassic",
+	#"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS!
+	#"InstallAdobe",
+	#"Install7Zip",
+	#"InstallNotepadplusplus",
+	#"InstallMediaPlayerClassic",
 
 	### Windows Apps
 	"DebloatAll",
@@ -1057,19 +1057,19 @@ Function EnableSuperfetch {
 }
 
 # Stop and disable Windows Search indexing service
-Function DisableIndexing {
-	Write-Output "Stopping and disabling Windows Search indexing service..."
-	Stop-Service "WSearch" -WarningAction SilentlyContinue
-	Set-Service "WSearch" -StartupType Disabled
-}
+# Function DisableIndexing {
+# 	Write-Output "Stopping and disabling Windows Search indexing service..."
+# 	Stop-Service "WSearch" -WarningAction SilentlyContinue
+# 	Set-Service "WSearch" -StartupType Disabled
+# }
 
 # Start and enable Windows Search indexing service
-Function EnableIndexing {
-	Write-Output "Starting and enabling Windows Search indexing service..."
-	Set-Service "WSearch" -StartupType Automatic
-	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\WSearch" -Name "DelayedAutoStart" -Type DWord -Value 1
-	Start-Service "WSearch" -WarningAction SilentlyContinue
-}
+# Function EnableIndexing {
+# 	Write-Output "Starting and enabling Windows Search indexing service..."
+# 	Set-Service "WSearch" -StartupType Automatic
+# 	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\WSearch" -Name "DelayedAutoStart" -Type DWord -Value 1
+# 	Start-Service "WSearch" -WarningAction SilentlyContinue
+# }
 
 # Set BIOS time to UTC
 Function SetBIOSTimeUTC {
